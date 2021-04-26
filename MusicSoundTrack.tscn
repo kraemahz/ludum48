@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/NKM-G-25-31-3012858918-0-9241-60-40-3-2418-54-0-96-914-27-131-5-162-0-0-0-0-127.wav" type="AudioStream" id=1]
+
+[node name="MusicSoundTrack" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -80.0
+autoplay = true

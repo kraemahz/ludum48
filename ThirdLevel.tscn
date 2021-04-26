@@ -1,0 +1,1349 @@
+[gd_scene load_steps=133 format=2]
+
+[ext_resource path="res://assets/DarkForestTexture.png" type="Texture" id=1]
+[ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=2]
+[ext_resource path="res://addons/rmsmartshape/normal_range.gd" type="Script" id=3]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=4]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=5]
+[ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=6]
+[ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=7]
+[ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=8]
+[ext_resource path="res://Camera.gd" type="Script" id=9]
+[ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=10]
+[ext_resource path="res://DialogTriggers.gd" type="Script" id=11]
+[ext_resource path="res://HitsControl.gd" type="Script" id=12]
+[ext_resource path="res://HealthPickup.gd" type="Script" id=13]
+[ext_resource path="res://assets/Spike.png" type="Texture" id=14]
+[ext_resource path="res://Tentaskull.gd" type="Script" id=15]
+[ext_resource path="res://assets/HeartSprite.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://assets/Crow_brother.png" type="Texture" id=17]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Crow.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Crow.gd" type="Script" id=21]
+[ext_resource path="res://Tentaskull.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/ForestEdge.png" type="Texture" id=23]
+[ext_resource path="res://assets/Images/3a2a22ba217c67eb3ec61429ada1_hires.jpeg" type="Texture" id=24]
+[ext_resource path="res://Melas.gd" type="Script" id=25]
+[ext_resource path="res://FinalBoss.gd" type="Script" id=26]
+[ext_resource path="res://assets/Melas Oneiros/Melas.png" type="Texture" id=27]
+[ext_resource path="res://TentaskullFrames.tres" type="SpriteFrames" id=28]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+func _process(delta):
+	pass
+"
+
+[sub_resource type="DynamicFontData" id=447]
+font_path = "res://assets/Roboto-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=448]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 447 )
+
+[sub_resource type="Resource" id=527]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=528]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 527 )
+
+[sub_resource type="Resource" id=529]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=530]
+script = ExtResource( 8 )
+position = Vector2( 176.799, 114.874 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 529 )
+
+[sub_resource type="Resource" id=531]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=532]
+script = ExtResource( 8 )
+position = Vector2( 477.324, 2070.53 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 531 )
+
+[sub_resource type="Resource" id=533]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=534]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 533 )
+
+[sub_resource type="Resource" id=535]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=536]
+script = ExtResource( 8 )
+position = Vector2( -154.799, 2069.88 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 535 )
+
+[sub_resource type="Resource" id=537]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=538]
+script = ExtResource( 8 )
+position = Vector2( 118.446, 158.568 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 537 )
+
+[sub_resource type="Resource" id=539]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 528 ),
+1: SubResource( 530 ),
+2: SubResource( 532 ),
+3: SubResource( 534 ),
+4: SubResource( 536 ),
+5: SubResource( 538 )
+}
+_point_order = [ 3, 5, 1, 2, 4, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 6
+
+[sub_resource type="Resource" id=367]
+script = ExtResource( 4 )
+textures = [ ExtResource( 23 ) ]
+texture_normals = [  ]
+textures_corner_outer = [  ]
+textures_corner_inner = [  ]
+texture_normals_corner_outer = [  ]
+texture_normals_corner_inner = [  ]
+textures_taper_left = [  ]
+textures_taper_right = [  ]
+texture_normals_taper_left = [  ]
+texture_normals_taper_right = [  ]
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+
+[sub_resource type="Resource" id=368]
+script = ExtResource( 3 )
+begin = 0.0
+distance = 0.0
+edgeRendering = Vector2( 0, 0 )
+
+[sub_resource type="Resource" id=369]
+script = ExtResource( 5 )
+edge_material = SubResource( 367 )
+normal_range = SubResource( 368 )
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[sub_resource type="Resource" id=370]
+script = ExtResource( 6 )
+_edge_meta_materials = [ SubResource( 369 ) ]
+fill_textures = [ ExtResource( 1 ) ]
+fill_texture_normals = [  ]
+fill_texture_z_index = -10
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="Resource" id=540]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=541]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 540 )
+
+[sub_resource type="Resource" id=542]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=543]
+script = ExtResource( 8 )
+position = Vector2( 176.799, 114.874 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 542 )
+
+[sub_resource type="Resource" id=544]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=545]
+script = ExtResource( 8 )
+position = Vector2( 540.891, 2318.45 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 544 )
+
+[sub_resource type="Resource" id=546]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=547]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 546 )
+
+[sub_resource type="Resource" id=548]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=549]
+script = ExtResource( 8 )
+position = Vector2( -156.918, 2324.16 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 548 )
+
+[sub_resource type="Resource" id=550]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=551]
+script = ExtResource( 8 )
+position = Vector2( 118.446, 158.568 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 550 )
+
+[sub_resource type="Resource" id=552]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 541 ),
+1: SubResource( 543 ),
+2: SubResource( 545 ),
+3: SubResource( 547 ),
+4: SubResource( 549 ),
+5: SubResource( 551 )
+}
+_point_order = [ 3, 5, 1, 2, 4, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 6
+
+[sub_resource type="Resource" id=553]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=554]
+script = ExtResource( 8 )
+position = Vector2( -303.826, 1009.26 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 553 )
+
+[sub_resource type="Resource" id=555]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=556]
+script = ExtResource( 8 )
+position = Vector2( 644.107, 998.811 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 555 )
+
+[sub_resource type="Resource" id=557]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=558]
+script = ExtResource( 8 )
+position = Vector2( 611.355, 2453.83 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 557 )
+
+[sub_resource type="Resource" id=559]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=560]
+script = ExtResource( 8 )
+position = Vector2( -303.826, 1009.26 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 559 )
+
+[sub_resource type="Resource" id=561]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=562]
+script = ExtResource( 8 )
+position = Vector2( -57.0082, 2463.03 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 561 )
+
+[sub_resource type="Resource" id=563]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=564]
+script = ExtResource( 8 )
+position = Vector2( -53.0757, 1060.72 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 563 )
+
+[sub_resource type="Resource" id=565]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=566]
+script = ExtResource( 8 )
+position = Vector2( -264.032, 1063.19 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 565 )
+
+[sub_resource type="Resource" id=567]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=568]
+script = ExtResource( 8 )
+position = Vector2( 609.276, 1066.59 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 567 )
+
+[sub_resource type="Resource" id=569]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 554 ),
+1: SubResource( 556 ),
+2: SubResource( 558 ),
+3: SubResource( 560 ),
+4: SubResource( 562 ),
+5: SubResource( 564 ),
+6: SubResource( 566 ),
+7: SubResource( 568 )
+}
+_point_order = [ 3, 6, 5, 7, 1, 2, 4, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 8
+
+[sub_resource type="Resource" id=570]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=571]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 570 )
+
+[sub_resource type="Resource" id=572]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=573]
+script = ExtResource( 8 )
+position = Vector2( 166.204, 208.107 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 572 )
+
+[sub_resource type="Resource" id=574]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=575]
+script = ExtResource( 8 )
+position = Vector2( 545.129, 2420.16 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 574 )
+
+[sub_resource type="Resource" id=576]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=577]
+script = ExtResource( 8 )
+position = Vector2( -132.318, 195.948 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 576 )
+
+[sub_resource type="Resource" id=578]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=579]
+script = ExtResource( 8 )
+position = Vector2( 31.6664, 2423.75 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 578 )
+
+[sub_resource type="Resource" id=580]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=581]
+script = ExtResource( 8 )
+position = Vector2( 4.02386, 230.612 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 580 )
+
+[sub_resource type="Resource" id=582]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 571 ),
+1: SubResource( 573 ),
+2: SubResource( 575 ),
+3: SubResource( 577 ),
+4: SubResource( 579 ),
+5: SubResource( 581 )
+}
+_point_order = [ 3, 5, 1, 2, 4, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 6
+
+[sub_resource type="Resource" id=583]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=584]
+script = ExtResource( 8 )
+position = Vector2( -75.6851, 144.979 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 583 )
+
+[sub_resource type="Resource" id=585]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=586]
+script = ExtResource( 8 )
+position = Vector2( 234.163, 138.26 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 585 )
+
+[sub_resource type="Resource" id=587]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=588]
+script = ExtResource( 8 )
+position = Vector2( 558.344, 2459.8 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 587 )
+
+[sub_resource type="Resource" id=589]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=590]
+script = ExtResource( 8 )
+position = Vector2( -75.6851, 144.979 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 589 )
+
+[sub_resource type="Resource" id=591]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=592]
+script = ExtResource( 8 )
+position = Vector2( -121.242, 2452.06 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 591 )
+
+[sub_resource type="Resource" id=593]
+script = ExtResource( 7 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=594]
+script = ExtResource( 8 )
+position = Vector2( 66.3198, 223.06 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 593 )
+
+[sub_resource type="Resource" id=595]
+script = ExtResource( 2 )
+_points = {
+0: SubResource( 584 ),
+1: SubResource( 586 ),
+2: SubResource( 588 ),
+3: SubResource( 590 ),
+4: SubResource( 592 ),
+5: SubResource( 594 )
+}
+_point_order = [ 3, 5, 1, 2, 4, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 6
+
+[sub_resource type="RectangleShape2D" id=351]
+extents = Vector2( 24.5575, 11.2089 )
+
+[sub_resource type="CircleShape2D" id=352]
+radius = 659.25
+
+[sub_resource type="AtlasTexture" id=353]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 64, 46 )
+
+[sub_resource type="AtlasTexture" id=354]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 64, 0, 64, 46 )
+
+[sub_resource type="AtlasTexture" id=355]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 128, 0, 64, 46 )
+
+[sub_resource type="SpriteFrames" id=350]
+animations = [ {
+"frames": [ SubResource( 353 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 354 ), SubResource( 355 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 19.3953
+height = 54.1218
+
+[sub_resource type="CapsuleShape2D" id=526]
+radius = 20.3962
+height = 54.1218
+
+[sub_resource type="AtlasTexture" id=437]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=438]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 72, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=439]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 144, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=440]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 216, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=441]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 288, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=442]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 360, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=443]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 432, 0, 72, 136 )
+
+[sub_resource type="AtlasTexture" id=444]
+flags = 4
+atlas = ExtResource( 27 )
+region = Rect2( 504, 0, 72, 136 )
+
+[sub_resource type="SpriteFrames" id=445]
+animations = [ {
+"frames": [ SubResource( 437 ), SubResource( 438 ), SubResource( 439 ), SubResource( 440 ), SubResource( 441 ), SubResource( 442 ), SubResource( 443 ), SubResource( 444 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=446]
+radius = 15.998
+height = 49.7391
+
+[sub_resource type="CircleShape2D" id=299]
+radius = 16.3485
+
+[sub_resource type="RectangleShape2D" id=300]
+extents = Vector2( 17076.6, 258.116 )
+
+[sub_resource type="RectangleShape2D" id=301]
+extents = Vector2( 38.5257, 37996.1 )
+
+[sub_resource type="CircleShape2D" id=302]
+radius = 14.296
+
+[sub_resource type="AtlasTexture" id=303]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=304]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 36, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=305]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=306]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 108, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=307]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 144, 0, 36, 36 )
+
+[sub_resource type="SpriteFrames" id=308]
+animations = [ {
+"frames": [ SubResource( 303 ), SubResource( 304 ), SubResource( 305 ), SubResource( 306 ), SubResource( 307 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=309]
+radius = 18.1005
+
+[node name="FirstLevel" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+script = ExtResource( 11 )
+opening_dialog = "timeline-1619378838.json"
+first_dialog = ""
+second_dialog = ""
+
+[node name="HitsControl" type="HBoxContainer" parent="UI/CanvasLayer"]
+margin_left = 36.48
+margin_top = 35.9188
+margin_right = 76.48
+margin_bottom = 75.9188
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI/CanvasLayer/HitsControl"]
+position = Vector2( 96.532, 20 )
+frames = ExtResource( 16 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="UI/CanvasLayer/HitsControl"]
+position = Vector2( 57.246, 20 )
+frames = ExtResource( 16 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="UI/CanvasLayer/HitsControl"]
+position = Vector2( 17.746, 20 )
+frames = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="UI/CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -178.0
+margin_top = -71.5
+margin_right = 178.0
+margin_bottom = 71.5
+custom_fonts/font = SubResource( 448 )
+text = "YOU WIN"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelPieces" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Forest0" type="StaticBody2D" parent="LevelPieces"]
+position = Vector2( 118.466, -891.541 )
+
+[node name="SS2D_Shape_Closed" type="Node2D" parent="LevelPieces/Forest0"]
+script = ExtResource( 10 )
+_points = SubResource( 539 )
+material_overrides = {
+
+}
+shape_material = SubResource( 370 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("../../Forest0/CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelPieces/Forest0"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( -135.195, 193.438, 118.258, 158.119, 179.737, 107.681, 481.562, 2074.17, -158.178, 2073.22 )
+
+[node name="Forest1" type="StaticBody2D" parent="LevelPieces"]
+position = Vector2( 1160.4, -1136.05 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SS2D_Shape_Closed" type="Node2D" parent="LevelPieces/Forest1"]
+script = ExtResource( 10 )
+_points = SubResource( 552 )
+material_overrides = {
+
+}
+shape_material = SubResource( 370 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelPieces/Forest1"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( -135.195, 193.438, 118.258, 158.119, 179.737, 107.681, 481.562, 2074.17, -158.178, 2073.22 )
+
+[node name="Forest2" type="StaticBody2D" parent="LevelPieces"]
+position = Vector2( 1808.79, -1233.52 )
+
+[node name="SS2D_Shape_Closed2" type="Node2D" parent="LevelPieces/Forest2"]
+position = Vector2( 602.455, -41.0122 )
+script = ExtResource( 10 )
+_points = SubResource( 569 )
+material_overrides = {
+
+}
+shape_material = SubResource( 370 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("../../Forest2/CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelPieces/Forest2"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( 293.82, 956.932, 339.207, 1020.61, 549.379, 1019.71, 1210.5, 1023.54, 1249.62, 945.767, 1216.97, 2416, 542.985, 2424.98 )
+
+[node name="Forest3" type="StaticBody2D" parent="LevelPieces"]
+position = Vector2( 1808.79, -1233.52 )
+
+[node name="SS2D_Shape_Closed3" type="Node2D" parent="LevelPieces/Forest3"]
+script = ExtResource( 10 )
+_points = SubResource( 582 )
+material_overrides = {
+
+}
+shape_material = SubResource( 370 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("../../Forest3/CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelPieces/Forest3"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( -136.589, 190.853, 4.04041, 230.314, 168.866, 204.469, 549.456, 2423.78, 28.7395, 2426.92 )
+
+[node name="Forest4" type="StaticBody2D" parent="LevelPieces"]
+position = Vector2( 3150.14, -1273.21 )
+
+[node name="SS2D_Shape_Closed4" type="Node2D" parent="LevelPieces/Forest4"]
+script = ExtResource( 10 )
+_points = SubResource( 595 )
+material_overrides = {
+
+}
+shape_material = SubResource( 370 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("../../Forest5/CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelPieces/Forest4"]
+visible = false
+modulate = Color( 1, 1, 1, 0.3 )
+polygon = PoolVector2Array( -79.5491, 138.296, 66.3521, 221.214, 237.266, 132.331, 562.522, 2463.48, -124.641, 2455.36 )
+
+[node name="GameContainer" type="Node2D" parent="."]
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+menu = "res://Menu.tscn"
+
+[node name="Player" parent="GameContainer" instance=ExtResource( 19 )]
+position = Vector2( 96.9698, -1033.68 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="GameContainer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="GameContainer/ParallaxBackground"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="GameContainer/ParallaxBackground/ParallaxLayer"]
+color = Color( 0.996078, 0.862745, 0.882353, 1 )
+
+[node name="Background" type="Sprite" parent="GameContainer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 892.456, 848.93 )
+texture = ExtResource( 24 )
+offset = Vector2( 763.436, -912.59 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="GameContainer"]
+
+[node name="GameEndTimer" type="Timer" parent="GameContainer"]
+wait_time = 3.5
+one_shot = true
+
+[node name="Enemies" type="Node2D" parent="GameContainer"]
+script = ExtResource( 26 )
+
+[node name="Crow" parent="GameContainer/Enemies" instance=ExtResource( 20 )]
+
+[node name="Crow2" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 825.099, -70.798 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+altitude = -146
+
+[node name="Collider" type="Area2D" parent="GameContainer/Enemies/Crow2"]
+position = Vector2( 1144.02, -971.883 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Crow2/Collider"]
+shape = SubResource( 351 )
+
+[node name="DetectionRadius" type="Area2D" parent="GameContainer/Enemies/Crow2"]
+position = Vector2( 1144.02, -971.883 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Crow2/DetectionRadius"]
+visible = false
+shape = SubResource( 352 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Crow2"]
+position = Vector2( 1144.02, -971.883 )
+frames = SubResource( 350 )
+playing = true
+
+[node name="Tentaskull" parent="GameContainer/Enemies" instance=ExtResource( 22 )]
+position = Vector2( 2180.9, -220.366 )
+
+[node name="Tentaskull2" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2249.31, -221.475 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull2"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull2"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull2/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull2"]
+
+[node name="Tentaskull3" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2318.6, -220.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull3"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull3"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull3/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull3"]
+
+[node name="Tentaskull4" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2385.6, -222.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull4"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull4"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull4/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull4"]
+
+[node name="Tentaskull5" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2457.6, -223.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull5"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull5"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull5/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull5"]
+one_shot = true
+
+[node name="Tentaskull6" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2532.6, -223.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull6"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull6"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull6/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull6"]
+
+[node name="Tentaskull7" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2622.53, -224.057 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull7"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull7"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull7/Area2D"]
+position = Vector2( 354.877, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull7"]
+
+[node name="Tentaskull8" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2704.94, -222.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull8"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull8"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull8/Area2D"]
+position = Vector2( 356.559, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull8"]
+
+[node name="Tentaskull9" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2776.6, -220.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull9"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull9"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull9/Area2D"]
+position = Vector2( 357.4, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull9"]
+
+[node name="Tentaskull10" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2847.6, -219.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull10"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull10"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull10/Area2D"]
+position = Vector2( 358.241, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull10"]
+
+[node name="Tentaskull11" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2927.6, -218.693 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull11"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull11"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull11/Area2D"]
+position = Vector2( 356.559, 235.816 )
+shape = SubResource( 9 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull11"]
+
+[node name="Tentaskull12" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 2988.15, -219.289 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Tentaskull12"]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 28 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Tentaskull12"]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Tentaskull12/Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 526 )
+
+[node name="Timer" type="Timer" parent="GameContainer/Enemies/Tentaskull12"]
+
+[node name="BossTimer" type="Timer" parent="GameContainer/Enemies"]
+wait_time = 10.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="GameContainer/Enemies"]
+position = Vector2( 3087.34, -428.991 )
+scale = Vector2( 1, 2.33484 )
+
+[node name="Melas" type="Node2D" parent="GameContainer/Enemies"]
+position = Vector2( 3072.52, -428.722 )
+script = ExtResource( 25 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Enemies/Melas"]
+position = Vector2( -60.8628, 5.04913 )
+frames = SubResource( 445 )
+frame = 1
+playing = true
+
+[node name="Area2D" type="Area2D" parent="GameContainer/Enemies/Melas"]
+position = Vector2( -40.4084, 3.36737 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Enemies/Melas/Area2D"]
+position = Vector2( -20.7246, 1.26477 )
+shape = SubResource( 446 )
+
+[node name="LeftSpawn" type="Position2D" parent="GameContainer"]
+position = Vector2( 2112.82, -428.192 )
+
+[node name="RightSpawn" type="Position2D" parent="GameContainer"]
+position = Vector2( 3011.11, -423.355 )
+
+[node name="Pickups" type="Node2D" parent="GameContainer"]
+
+[node name="Health" type="Area2D" parent="GameContainer/Pickups"]
+position = Vector2( 1814.06, -1038.65 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameContainer/Pickups/Health"]
+shape = SubResource( 299 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Pickups/Health"]
+position = Vector2( 1.58789, 1.23718 )
+frames = ExtResource( 16 )
+playing = true
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="MapBottom" type="Area2D" parent="Boundaries"]
+position = Vector2( 1.49829, 955.92 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/MapBottom"]
+position = Vector2( 16936.3, 440.901 )
+shape = SubResource( 300 )
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( -50.25, -53.8018 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall"]
+shape = SubResource( 301 )
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( 33600.5, -59.459 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall"]
+shape = SubResource( 301 )
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Spike" type="StaticBody2D" parent="Hazards"]
+position = Vector2( 1681.02, -1066.09 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Spike"]
+shape = SubResource( 302 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Hazards/Spike"]
+frames = SubResource( 308 )
+frame = 4
+playing = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Spike"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Spike/Area2D"]
+shape = SubResource( 309 )
+[connection signal="healed" from="UI/CanvasLayer/HitsControl" to="GameContainer/Player" method="_on_healed"]
+[connection signal="no_lives" from="UI/CanvasLayer/HitsControl" to="GameContainer" method="_fade_background"]
+[connection signal="no_lives" from="UI/CanvasLayer/HitsControl" to="GameContainer/Player" method="_no_lives"]
+[connection signal="hit" from="GameContainer/Player" to="UI/CanvasLayer/HitsControl" method="take_hit"]
+[connection signal="timeout" from="GameContainer/GameEndTimer" to="GameContainer" method="_on_GameEndTimer_timeout"]
+[connection signal="body_entered" from="GameContainer/Enemies/Crow2/Collider" to="GameContainer/Player" method="_enemy_body_entered"]
+[connection signal="body_entered" from="GameContainer/Enemies/Crow2/DetectionRadius" to="GameContainer/Enemies/Crow2" method="_on_DetectionRadius_entered"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull2/AnimatedSprite" to="GameContainer/Enemies/Tentaskull2" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull2/Area2D" to="GameContainer/Enemies/Tentaskull2" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull2/Timer" to="GameContainer/Enemies/Tentaskull2" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull3/AnimatedSprite" to="GameContainer/Enemies/Tentaskull3" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull3/Area2D" to="GameContainer/Enemies/Tentaskull3" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull3/Timer" to="GameContainer/Enemies/Tentaskull3" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull4/AnimatedSprite" to="GameContainer/Enemies/Tentaskull4" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull4/Area2D" to="GameContainer/Enemies/Tentaskull4" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull4/Timer" to="GameContainer/Enemies/Tentaskull4" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull5/AnimatedSprite" to="GameContainer/Enemies/Tentaskull5" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull5/Area2D" to="GameContainer/Enemies/Tentaskull5" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull5/Timer" to="GameContainer/Enemies/Tentaskull5" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull6/AnimatedSprite" to="GameContainer/Enemies/Tentaskull6" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull6/Area2D" to="GameContainer/Enemies/Tentaskull6" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull6/Timer" to="GameContainer/Enemies/Tentaskull6" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull7/AnimatedSprite" to="GameContainer/Enemies/Tentaskull7" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull7/Area2D" to="GameContainer/Enemies/Tentaskull7" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull7/Timer" to="GameContainer/Enemies/Tentaskull7" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull8/AnimatedSprite" to="GameContainer/Enemies/Tentaskull8" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull8/Area2D" to="GameContainer/Enemies/Tentaskull8" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull8/Timer" to="GameContainer/Enemies/Tentaskull8" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull9/AnimatedSprite" to="GameContainer/Enemies/Tentaskull9" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull9/Area2D" to="GameContainer/Enemies/Tentaskull9" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull9/Timer" to="GameContainer/Enemies/Tentaskull9" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull10/AnimatedSprite" to="GameContainer/Enemies/Tentaskull10" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull10/Area2D" to="GameContainer/Enemies/Tentaskull10" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull10/Timer" to="GameContainer/Enemies/Tentaskull10" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull11/AnimatedSprite" to="GameContainer/Enemies/Tentaskull11" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull11/Area2D" to="GameContainer/Enemies/Tentaskull11" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull11/Timer" to="GameContainer/Enemies/Tentaskull11" method="_on_Timer_timeout"]
+[connection signal="frame_changed" from="GameContainer/Enemies/Tentaskull12/AnimatedSprite" to="GameContainer/Enemies/Tentaskull12" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="GameContainer/Enemies/Tentaskull12/Area2D" to="GameContainer/Enemies/Tentaskull12" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="GameContainer/Enemies/Tentaskull12/Timer" to="GameContainer/Enemies/Tentaskull12" method="_on_Timer_timeout"]
+[connection signal="timeout" from="GameContainer/Enemies/BossTimer" to="GameContainer/Enemies" method="_on_BossTimer_timeout"]
+[connection signal="screen_entered" from="GameContainer/Enemies/VisibilityNotifier2D" to="GameContainer/Enemies" method="_on_screen_entered"]
+[connection signal="screen_entered" from="GameContainer/Enemies/VisibilityNotifier2D" to="UI/CanvasLayer" method="_on_enter_arena"]
+[connection signal="boss_hit" from="GameContainer/Enemies/Melas" to="GameContainer/Enemies" method="_on_Melas_boss_hit"]
+[connection signal="boss_killed" from="GameContainer/Enemies/Melas" to="GameContainer" method="_on_Melas_boss_killed"]
+[connection signal="boss_killed" from="GameContainer/Enemies/Melas" to="UI/CanvasLayer" method="_on_Melas_boss_killed"]
+[connection signal="area_entered" from="GameContainer/Enemies/Melas/Area2D" to="GameContainer/Enemies/Melas" method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="GameContainer/Enemies/Melas/Area2D" to="GameContainer/Enemies/Melas" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="GameContainer/Pickups/Health" to="GameContainer/Pickups/Health" method="_on_Health_body_entered"]
+[connection signal="body_entered" from="GameContainer/Pickups/Health" to="UI/CanvasLayer/HitsControl" method="restore"]
+[connection signal="body_entered" from="Boundaries/MapBottom" to="GameContainer/Player" method="_on_map_bottom_entered"]
+[connection signal="body_entered" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_hit"]
+[connection signal="body_exited" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_leave"]

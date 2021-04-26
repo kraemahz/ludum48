@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tentaskull.gd" type="Script" id=1]
+[ext_resource path="res://TentaskullFrames.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="CapsuleShape2D" id=526]
+radius = 20.3962
+height = 54.1218
+
+[node name="Tentaskull" type="Node2D"]
+position = Vector2( 2224.65, -654.938 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.595947, -37.2262 )
+frames = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -359.032, -274.397 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 364.968, 235.816 )
+shape = SubResource( 526 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
