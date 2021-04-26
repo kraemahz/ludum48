@@ -6,7 +6,7 @@ signal boss_hit
 const HITS_TO_KILL = 3
 var hits_taken = 0
 var sides = [Vector2(3072.52, -423.355),
-			 Vector2(2112.823, -428.192)]
+			 Vector2(2412.823, -428.192)]
 var side = 0
 var simple_audio_player = preload("res://SimpleAudioPlayer.tscn")
 

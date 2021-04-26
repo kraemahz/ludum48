@@ -1245,6 +1245,7 @@ shape = SubResource( 299 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Pickups/Health"]
 position = Vector2( 1.58789, 1.23718 )
 frames = ExtResource( 16 )
+frame = 1
 playing = true
 
 [node name="Boundaries" type="Node2D" parent="."]
@@ -1287,7 +1288,6 @@ shape = SubResource( 302 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Hazards/Spike"]
 frames = SubResource( 308 )
-frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Hazards/Spike"]
@@ -1295,8 +1295,8 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Spike/Area2D"]
 shape = SubResource( 309 )
 [connection signal="healed" from="UI/CanvasLayer/HitsControl" to="GameContainer/Player" method="_on_healed"]
-[connection signal="no_lives" from="UI/CanvasLayer/HitsControl" to="GameContainer" method="_fade_background"]
 [connection signal="no_lives" from="UI/CanvasLayer/HitsControl" to="GameContainer/Player" method="_no_lives"]
+[connection signal="no_lives" from="UI/CanvasLayer/HitsControl" to="GameContainer" method="_fade_background"]
 [connection signal="hit" from="GameContainer/Player" to="UI/CanvasLayer/HitsControl" method="take_hit"]
 [connection signal="timeout" from="GameContainer/GameEndTimer" to="GameContainer" method="_on_GameEndTimer_timeout"]
 [connection signal="body_entered" from="GameContainer/Enemies/Crow2/Collider" to="GameContainer/Player" method="_enemy_body_entered"]
@@ -1338,12 +1338,12 @@ shape = SubResource( 309 )
 [connection signal="screen_entered" from="GameContainer/Enemies/VisibilityNotifier2D" to="GameContainer/Enemies" method="_on_screen_entered"]
 [connection signal="screen_entered" from="GameContainer/Enemies/VisibilityNotifier2D" to="UI/CanvasLayer" method="_on_enter_arena"]
 [connection signal="boss_hit" from="GameContainer/Enemies/Melas" to="GameContainer/Enemies" method="_on_Melas_boss_hit"]
-[connection signal="boss_killed" from="GameContainer/Enemies/Melas" to="GameContainer" method="_on_Melas_boss_killed"]
 [connection signal="boss_killed" from="GameContainer/Enemies/Melas" to="UI/CanvasLayer" method="_on_Melas_boss_killed"]
+[connection signal="boss_killed" from="GameContainer/Enemies/Melas" to="GameContainer" method="_on_Melas_boss_killed"]
 [connection signal="area_entered" from="GameContainer/Enemies/Melas/Area2D" to="GameContainer/Enemies/Melas" method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="GameContainer/Enemies/Melas/Area2D" to="GameContainer/Enemies/Melas" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="GameContainer/Pickups/Health" to="GameContainer/Pickups/Health" method="_on_Health_body_entered"]
 [connection signal="body_entered" from="GameContainer/Pickups/Health" to="UI/CanvasLayer/HitsControl" method="restore"]
+[connection signal="body_entered" from="GameContainer/Pickups/Health" to="GameContainer/Pickups/Health" method="_on_Health_body_entered"]
 [connection signal="body_entered" from="Boundaries/MapBottom" to="GameContainer/Player" method="_on_map_bottom_entered"]
 [connection signal="body_entered" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_hit"]
 [connection signal="body_exited" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_leave"]
