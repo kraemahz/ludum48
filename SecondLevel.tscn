@@ -1816,7 +1816,6 @@ shape = SubResource( 162 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GameContainer/Pickups/Health"]
 position = Vector2( 1.58789, 1.23718 )
 frames = ExtResource( 6 )
-frame = 1
 playing = true
 
 [node name="Boundaries" type="Node2D" parent="."]
@@ -1859,7 +1858,7 @@ shape = SubResource( 165 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Hazards/Spike"]
 frames = SubResource( 171 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Hazards/Spike"]
@@ -1889,8 +1888,8 @@ shape = SubResource( 172 )
 [connection signal="body_entered" from="GameContainer/Enemies/Crow5/DetectionRadius" to="GameContainer/Enemies/Crow5" method="_on_DetectionRadius_entered"]
 [connection signal="body_entered" from="GameContainer/Enemies/Crow6/Collider" to="GameContainer/Player" method="_enemy_body_entered"]
 [connection signal="body_entered" from="GameContainer/Enemies/Crow6/DetectionRadius" to="GameContainer/Enemies/Crow6" method="_on_DetectionRadius_entered"]
-[connection signal="body_entered" from="GameContainer/Pickups/Health" to="GameContainer/Pickups/Health" method="_on_Health_body_entered"]
 [connection signal="body_entered" from="GameContainer/Pickups/Health" to="UI/CanvasLayer/HitsControl" method="restore"]
+[connection signal="body_entered" from="GameContainer/Pickups/Health" to="GameContainer/Pickups/Health" method="_on_Health_body_entered"]
 [connection signal="body_entered" from="Boundaries/MapBottom" to="GameContainer/Player" method="_on_map_bottom_entered"]
 [connection signal="body_entered" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_hit"]
 [connection signal="body_exited" from="Hazards/Spike/Area2D" to="GameContainer/Player" method="_on_spike_leave"]

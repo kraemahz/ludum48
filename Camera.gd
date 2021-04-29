@@ -6,6 +6,7 @@ var viewport_size
 var player
 
 const parallax_scale = 10
+var goto_menu = false
 export (String, FILE) var menu
 export (String, FILE) var next_level
 onready var audio = get_node("/root/MusicSoundTrack")
@@ -54,12 +55,16 @@ func _fade_background():
 	$GameEndTimer.start()
 
 func _on_GameEndTimer_timeout():
+	if goto_menu:
 		get_node("/root/Globals").load_new_scene(menu)
+	else:
+		get_tree().reload_current_scene()
 
 func _on_portal_entered(body):
 	get_node("/root/Globals").load_new_scene(next_level)
 
 func _on_Melas_boss_killed():
 	_fade_background()
+	goto_menu = true
 	$GameEndTimer.wait_time = 10.0
 	$GameEndTimer.start()

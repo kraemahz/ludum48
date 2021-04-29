@@ -26,10 +26,12 @@ func play_sound(sound_name):
 		audio_node.stream = audio_dash
 	elif sound_name == "flap":
 		audio_node.stream = audio_flap
+		audio_node.volume_db = -30.0
 	elif sound_name == "boss":
 		audio_node.stream = audio_boss
 	elif sound_name == "tentacle":
 		audio_node.stream = audio_tentacle
+		audio_node.volume_db = -20.0
 	elif sound_name == "heal":
 		audio_node.stream = audio_heal
 		audio_node.volume_db = -20.0
